@@ -44,6 +44,15 @@ int main()
     scanf("%ld",&a[i]);
     
     mergesort(a,0,n-1);
+
+
+
+
+
+
+
+
+    
     long int mid=n/2;
     if(a[mid]==a[mid+1]||a[mid]==a[mid-1])
     printf("1");
