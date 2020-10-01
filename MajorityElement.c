@@ -1,5 +1,43 @@
 #include<stdio.h>
 
+void merge(long int a[],long int l,long int mid,long int r)
+{
+    long int i,j,k,n1=mid-l+1,n2=r-mid;
+    long int L[n1],R[n2];
+    for(i=0;i<n1;++i)
+    L[i]=a[l+i];
+    for(j=0;j<n2;++j)
+    R[j]=a[mid+1+j];
+    
+    i=0,j=0,k=l;
+    while(i<n1&&j<n2)
+    {
+        if(L[i]<=R[j])
+        a[k++]=L[i++];
+        else
+        a[k++]=R[j++];
+    }
+    
+    while(i<n1)
+    a[k++]=L[i++];
+    while(j<n2)
+    a[k++]=R[j++];
+}
+// merge sort function
+void mergesort(long int a[],long int l,long int r)
+{
+    long int mid;
+    if(l<r)
+    {
+        mid=l+(r-l)/2;
+        
+        mergesort(a,l,mid);
+        mergesort(a,mid+1,r);
+        
+        merge(a,l,mid,r);
+    }
+=======
+
 void insertionSort(int arr[], int n) 
 { 
     int i, key, j; 
@@ -16,6 +54,7 @@ void insertionSort(int arr[], int n)
         } 
         arr[j + 1] = key; 
     } 
+
 }
 int main()
 {
