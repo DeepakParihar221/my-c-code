@@ -22,6 +22,7 @@ void merge(long int a[],long int l,long int mid,long int r)
     while(j<n2)
     a[k++]=R[j++];
 }
+// merge sort function
 void mergesort(long int a[],long int l,long int r)
 {
     long int mid;
