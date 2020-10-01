@@ -5,10 +5,10 @@ void main()
     int i, j, k;
     char string[100];
     char reverse[100];
-    printf("Enter a string:\t");
+    printf("Enter a string to be reversed\t");
     scanf("%s", string);
     printf("The Original string is %s\n", string);
-    for(i = 0; string[i] != '\0'; i++);
+    for(i = 0; string[i] !='\0'; i++)
     {
         k = i-1;
     }
