@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class binary
+{
+     public static void main(String[] args)
+   {
+       Scanner sc = new Scanner(System.in);
+       int n;
+       System.out.print("\n ENTER THE SIZE OF ARRAY\n");
+       n=sc.nextInt();
+       int [] a= new int[n];
+       System.out.print("Enter numbers in the array : \n");
+       for(int i=0 ; i<=n-1 ; i++ )
+       {
+        a[i]=sc.nextInt();
+       }
+       int k;
+       int gr;
+       for(int d=0 ; d<=n-1 ; d++){
+       for(int i=d+1 ; i<=n-1 ; i++)
+       {
+       
+       if(a[i]< a[d])
+       {
+        gr=a[d];
+        a[d]=a[i];
+        a[i]=gr;
+       }
+       }
+    }
+     System.out.print("\n SORTED OUTPUT \n");
+    for( int i=0;i<=n-1;i++)
+    {
+        System.out.printf("%d ",a[i]);
+    }
+    System.out.print("\n ENTER NUMBER TO BE SEARCHED");
+      int key = sc.nextInt();
+      
+      int r=n-1 ;
+      int l=0;
+      int m=(l+r)/2;
+    while(l<=r){
+    if(a[m]<key){
+    l=m+1;
+    }
+    if(a[m]==key)
+    {System.out.print("\n Found "+ a[m] +" at index " + m);
+    break;}
+    if(a[m]>key){
+    r=m-1;
+    }
+    m=(l+r)/2;
+    }
+      if(l>r){System.out.print("\n Not Found");}
+} 
+}
