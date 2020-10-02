@@ -1,84 +1,44 @@
 #include<stdio.h>
-
-void merge(long int a[],long int l,long int mid,long int r)
+void Bubble_Sort(int a[],int n)
 {
-    long int i,j,k,n1=mid-l+1,n2=r-mid;
-    long int L[n1],R[n2];
-    for(i=0;i<n1;++i)
-    L[i]=a[l+i];
-    for(j=0;j<n2;++j)
-    R[j]=a[mid+1+j];
-    
-    i=0,j=0,k=l;
-    while(i<n1&&j<n2)
-    {
-        if(L[i]<=R[j])
-        a[k++]=L[i++];
-        else
-        a[k++]=R[j++];
-    }
-    
-    while(i<n1)
-    a[k++]=L[i++];
-    while(j<n2)
-    a[k++]=R[j++];
-}
-// merge sort function
-void mergesort(long int a[],long int l,long int r)
-{
-    long int mid;
-    if(l<r)
-    {
-        mid=l+(r-l)/2;
-        
-        mergesort(a,l,mid);
-        mergesort(a,mid+1,r);
-        
-        merge(a,l,mid,r);
-    }
-=======
-
-void insertionSort(int arr[], int n) 
-{ 
-    int i, key, j; 
-    for (i = 0; i < n; i++) { 
-        key = arr[i]; 
-        j = i - 1; 
-  
-        /* Move elements of arr[0..i-1], that are 
-          greater than key, to one position ahead 
-          of their current position */
-        while (j >= 0 && arr[j] > key) { 
-            arr[j + 1] = arr[j]; 
-            j = j - 1; 
-        } 
-        arr[j + 1] = key; 
-    } 
-
+	int i,round,c;
+	for(round=0;round<n-1;round++)
+	{
+		c=0;
+		for(i=0;i<n-1-round;i++)
+		{
+			if(a[i]>a[i+1])
+			{
+				c=1;				
+				a[i]=a[i]+a[i+1];
+				a[i+1]=a[i]-a[i+1];
+				a[i]=a[i]-a[i+1];
+			}
+		}
+		if(c==0)
+		{
+			printf("round=%d\n",round);
+			break;
+		}
+	}
 }
 int main()
 {
-    long int n;
-    scanf("%ld",&n);
-    long int a[n];
-    for(long int i=0;i<n;++i)
-    scanf("%ld",&a[i]);
-    mergesort(a,0,n-1);
-
-
-
-
-
-
-
-
-    
-=======
-    mergesort(a, n-1);
-    long int mid=n/2;
-    if(a[mid]==a[mid+1]||a[mid]==a[mid-1])
-    printf("1");
-    else
-    printf("0");
-    return 0;
+	int n,i;
+	printf("enter the no. elements in array\n");
+	scanf("%d",&n);
+	int array[n];
+	printf("enter the elements in array\n");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&array[i]);
+	}
+	Bubble_Sort(array,n);
+	printf("elements after sorting are:\n");
+	for(i=0;i<n;i++)
+	{
+		printf("%d ",array[i]);
+	}
 }
+
+
