@@ -29,12 +29,12 @@ void mergesort(long int a[],long int l,long int r)
     long int mid;
     if(l<r)
     {
-        mid=l+(r-l)/2;
+        mid=le+(r-l)/2;
         
-        mergesort(a,l,mid);
+        mergesort(a,le,mid);
         mergesort(a,mid+1,r);
         
-        merge(a,l,mid,r);
+        merge(a,le,mid,r);
     }
 =======
 
@@ -64,16 +64,6 @@ int main()
     for(long int i=0;i<n;++i)
     scanf("%ld",&a[i]);
     mergesort(a,0,n-1);
-
-
-
-
-
-
-
-
-    
-=======
     mergesort(a, n-1);
     long int mid=n/2;
     if(a[mid]==a[mid+1]||a[mid]==a[mid-1])
